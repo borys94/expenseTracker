@@ -1,22 +1,13 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { ThemeProvider } from 'react-native-elements'
+
+import Navigation from './Navigation'
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>expense tracker</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider>
+      <Navigation />
+    </ThemeProvider>
   )
 }
 
 export default App
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

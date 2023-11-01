@@ -1,4 +1,5 @@
-import App from './src/App'
+import App from "./src/App";
+import "react-native-gesture-handler"
 
 const Application = () => <App />
 
