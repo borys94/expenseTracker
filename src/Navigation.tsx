@@ -1,6 +1,6 @@
 import { DrawerContentComponentProps, DrawerToggleButton, createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
-import { View } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
 import { Icon, ListItem } from 'react-native-elements'
 
 import AboutScreen from './screens/AboutScreen'
@@ -18,6 +18,7 @@ const Navigation = () => {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
+          headerTitle: 'Expense tracker',
           drawerPosition: 'right',
           headerLeft: () => null,
           headerRight: () => <DrawerToggleButton />,
@@ -65,7 +66,7 @@ function CustomDrawerContent({ navigation }: DrawerContentComponentProps) {
   ]
 
   return (
-    <View>
+    <View style={styles.drawerContainer}>
       {list.map((item, i) => (
         <ListItem onPress={item.onPress} key={i} bottomDivider>
           <Icon name={item.icon} />
@@ -78,3 +79,9 @@ function CustomDrawerContent({ navigation }: DrawerContentComponentProps) {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  drawerContainer: {
+    marginTop: StatusBar.currentHeight,
+  },
+})
